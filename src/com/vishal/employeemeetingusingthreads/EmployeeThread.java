@@ -1,7 +1,6 @@
 package com.vishal.employeemeetingusingthreads;
 
 import java.lang.Thread;
-import java.util.Scanner;
 
 public class EmployeeThread implements Runnable {
 
