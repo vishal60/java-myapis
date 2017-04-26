@@ -18,7 +18,7 @@ public class MyArrayList<T> {
 		if(arrayMaxIndex  <= array.length-1){
 			array[arrayMaxIndex++] = obj;
 		}else{
-			//copy the old array contents to new array of size size*3/2+1
+			//copy the old array contents to new array of size: size*3/2+1
 			arraySize *= 3/2+1;
 			newArray = (T[])new Object[arraySize];
 			for (int i = 0; i < array.length; i++) 

@@ -25,7 +25,7 @@ public class Test {
 		mal.add(1);
 		mal.add(true);
 		
-		//System.out.println(mal);
+		System.out.println(mal);
 		
 		MyIterator<Object> iterator = mal.iterator();
 		while(iterator.hasNext())
