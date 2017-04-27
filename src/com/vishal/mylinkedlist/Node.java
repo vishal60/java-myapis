@@ -1,34 +1,29 @@
 package com.vishal.mylinkedlist;
 
-public class Node<E>{
-    private E info;
-    private Node<E> next;
+public class Node {
+	
+	private Object info;
+	private Node nextNode;
+	
+	public Node(){
+		info = null;
+		nextNode = null;
+	}
 
-    public Node(){
-	    this.next = null;
-    }
+	public void setInfo(Object info) {
+		this.info = info;
+	}
 
-    public Node(E info){
-	    this.info = info;
-	    this.next = null;
-    }
-    public Node(E info, Node<E> next){
-	    this.info = info;
-	    this.next = next;
-    }
+	public void setNextNode(Node nextNode) {
+		this.nextNode = nextNode;
+	}
 
-    public E getInfo(){
-	    return this.info;
-    }
-    public void setInfo(E info){
-	    this.info = info;
-    }
-    public Node<E> getNext(){
-	    return this.next;
-    }
+	public Object getInfo() {
+		return info;
+	}
 
-    public void setNext(Node<E> next){
-	    this.next = next;
-    }
-
+	public Node getNextNode() {
+		return nextNode;
+	}
+	
 }

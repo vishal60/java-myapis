@@ -1,29 +1,66 @@
 package com.vishal.mylinkedlist.test;
 
 import com.vishal.mylinkedlist.MyLinkedList;
- 
-public class Test{
 
-    public static void main(String args[]){
-	    // Create a linked list using MyLinkedList<Integer>
-	    MyLinkedList<Integer> list1 = new MyLinkedList<Integer>();
-	   
-	    //Insert the first 10 ints at the beginning
-	    for (int i=0; i< 10; i++){
-	        list1.insert(i);
-	    }
-	    //Print the whole list
-	    list1.print();
-	    
-	    // Create another linked list using MyLinkedList<Integer>
-	    MyLinkedList<Integer> list2 = new MyLinkedList<Integer>();
+public class Test {
 
-	    // Insert 10 ints at the end
-	    for (int i=0; i< 10; i++){
-	        list2.insertEnd(i);
-	    }
-	    //Print the whole second list
-        list2.print();
+	public static void main(String[] args) {
 
-    }
+		MyLinkedList<Integer> list1 = new MyLinkedList<Integer>();
+
+		for (int i = 0; i < 10; i++) {
+			list1.insertAtBeginning(i);
+			list1.insertAtBeginning(i);
+		}
+
+		list1.insertAt(100, 5);
+
+		boolean success;
+		System.out.println("Testing: Delete first occurrence of a value of below list");
+		list1.print();
+
+		for (int i = 1; i <= 3; i++) {
+			System.out.print("Deleting 9: ");
+			success = list1.deleteFirstOccurrence(9);
+			if (success) {
+				System.out.println("First occurence deleted");
+			} else {
+				System.out.println("Element with that info not found");
+			}
+			list1.print();
+		}
+		System.out.println();
+		
+		//-----------------------------------------------------------------------------------------//
+		
+		list1 = new MyLinkedList<Integer>();
+		int nodesDeleted;
+
+		// Insert 20 ints repeated twice
+		for (int i = 0; i < 10; i++) {
+			list1.insertAtEnd(i);
+			list1.insertAtEnd(i);
+		}
+		
+		list1.insertAt(111, 8);
+		
+		//Deleting of all the occurrences of a value
+		System.out.println("Test: Deleting of all the occurrences of a value");
+		list1.print();
+
+		System.out.print("Deleting 0: ");
+		nodesDeleted = list1.deleteAll(0);
+		System.out.println(nodesDeleted + " deleted nodes");
+		list1.print();
+		
+		System.out.print("Deleting 111: ");
+		nodesDeleted = list1.deleteAll(111);
+		System.out.println(nodesDeleted + " deleted nodes");
+		list1.print();
+
+
+		System.out.println("Size of the list1 is " + list1.size());
+
+	}
+
 }
