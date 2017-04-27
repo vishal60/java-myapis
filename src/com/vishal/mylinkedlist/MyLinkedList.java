@@ -37,7 +37,7 @@ public class MyLinkedList<E> {
 	}
 
 	public void insertAt(E info, int index) {
-		previousNode = start;		
+		previousNode = start;
 		for (int i = 0; i < index - 1; i++)
 			previousNode = previousNode.getNextNode();
 		Node newNode = new Node();
@@ -51,21 +51,23 @@ public class MyLinkedList<E> {
 
 		final boolean SUCCESS = true;
 		final boolean FAILURE = false;
-		currentNode = start.getNextNode();
-		previousNode = start;
-		if (start.getInfo().equals(info)) {
-			start = start.getNextNode();
-			return SUCCESS;
-		}
-		while (previousNode != null && currentNode != null) {
-			if (currentNode.getInfo().equals(info)) {
-				previousNode.setNextNode(currentNode.getNextNode());
+		try {
+			currentNode = start.getNextNode();
+			previousNode = start;
+			if (start.getInfo().equals(info)) {
+				start = start.getNextNode();
 				return SUCCESS;
-			} else {
-				currentNode = currentNode.getNextNode();
-				previousNode = previousNode.getNextNode();
 			}
-		}
+			while (previousNode != null && currentNode != null) {
+				if (currentNode.getInfo().equals(info)) {
+					previousNode.setNextNode(currentNode.getNextNode());
+					return SUCCESS;
+				} else {
+					currentNode = currentNode.getNextNode();
+					previousNode = previousNode.getNextNode();
+				}
+			}
+		} catch (Exception ignored) {}
 		return FAILURE;
 	}
 
@@ -94,13 +96,17 @@ public class MyLinkedList<E> {
 	}
 
 	public void print() {
-		currentNode = start;
-		System.out.print("[ ");
-		while (currentNode.getNextNode() != null) {
-			System.out.print(currentNode.getInfo() + ", ");
-			currentNode = currentNode.getNextNode();
+		if (start != null) {
+			currentNode = start;
+			System.out.print("[ ");
+			while (currentNode != null) {
+				System.out.print(currentNode.getInfo() + ", ");
+				currentNode = currentNode.getNextNode();
+			}
+			System.out.println(end.getInfo() + " ]");
+		} else {
+			System.out.println("[]");
 		}
-		System.out.println(currentNode.getInfo() + " ]");
 	}
 
 }

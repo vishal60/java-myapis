@@ -6,6 +6,8 @@ public class Test {
 
 	public static void main(String[] args) {
 
+		boolean success;
+		
 		MyLinkedList<Integer> list1 = new MyLinkedList<Integer>();
 
 		for (int i = 0; i < 10; i++) {
@@ -14,8 +16,8 @@ public class Test {
 		}
 
 		list1.insertAt(100, 5);
+		
 
-		boolean success;
 		System.out.println("Testing: Delete first occurrence of a value of below list");
 		list1.print();
 
